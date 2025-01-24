@@ -1,6 +1,6 @@
 namespace Tetris;
 
-class BrickInfo
+internal class BrickInfo
 {
     // Position[] The relative coordinates of the other three cells
     // List<Position[]> different rotation states
