@@ -9,9 +9,11 @@ internal class Map : IDraw
     public int dWidth; // Horizontal capacity of dynamic walls
     public int height;
     private int[] record; // record bricks count for each row
+    private PlayScene playScene;
 
-    public Map()
+    public Map(PlayScene playScene)
     {
+        this.playScene = playScene;
         height = Game.height - 6;
         record = new int[height];
         dWidth = 0;
