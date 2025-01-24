@@ -180,7 +180,6 @@ internal class BrickWorker : IDraw
         Position downMove = new Position(0, 1);
         for (int i = 0; i < brick.Count; i++) {
             brick[i].position += downMove;
-
         }
         Draw();
     }

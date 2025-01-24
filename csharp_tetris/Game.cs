@@ -17,9 +17,7 @@ class Game
     {
         Console.CursorVisible = false;
         Console.SetWindowSize(width, height);
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
-            Console.SetBufferSize(width, height);
-        }
+        Console.SetBufferSize(width, height);
         ChangeScene(E_SceneType.Begin);
     }
 
@@ -36,6 +34,13 @@ class Game
             case E_SceneType.End:
                 scene = new EndScene();
                 break;
+        }
+    }
+
+    public void Start()
+    {
+        while (true) {
+            scene?.Update();
         }
     }
 }

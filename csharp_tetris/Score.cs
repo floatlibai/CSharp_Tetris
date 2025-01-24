@@ -15,17 +15,17 @@ internal class Score : Map
         scoreLineCountName = "行数:";
 
         // 1 line 10 points
-        Console.SetCursorPosition(2, height - 4);
+        Console.SetCursorPosition(2, Game.height - 4);
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write(scoreSumName);
-        Console.SetCursorPosition(2, height - 3);
+        Console.SetCursorPosition(2, Game.height - 3);
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write(scoreLineCountName);
         // init count 0
-        Console.SetCursorPosition(7, height - 4);
+        Console.SetCursorPosition(7, Game.height - 4);
         Console.ForegroundColor = ConsoleColor.White;
         Console.Write(scoreInit);
-        Console.SetCursorPosition(7, height - 3);
+        Console.SetCursorPosition(7, Game.height - 3);
         Console.ForegroundColor = ConsoleColor.White;
         Console.Write(lineInit);
 
@@ -51,7 +51,6 @@ internal class Score : Map
         return score += 10;
     }
 
-    // 判断是否消除一行
     public void Isclear()
     {
         DrawScore(GetScore(), updateScore());

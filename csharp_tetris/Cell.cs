@@ -51,7 +51,7 @@ internal class Cell : IDraw
             default:
                 break;
         }
-        Console.Write("卐");
+        Console.Write("#");
     }
 
     public void Clear()

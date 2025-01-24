@@ -27,7 +27,7 @@ internal class Map : IDraw
         // Vertical
         for (int i = 0; i < Game.height; i++) {
             staticWall.Add(new Cell(E_CellType.Wall, 0, i));
-            staticWall.Add(new Cell(E_CellType.Wall, Game.width, i));
+            staticWall.Add(new Cell(E_CellType.Wall, Game.width - 2, i));
         }
     }
 
@@ -54,6 +54,7 @@ internal class Map : IDraw
             cells[i].ChangeType(E_CellType.Wall);
             dynamicWall.Add(cells[i]);
             if (cells[i].position.y <= 0) {
+                this.playScene.StopThread();
                 Game.ChangeScene(E_SceneType.End);
                 return;
             }
@@ -61,7 +62,8 @@ internal class Map : IDraw
             record[height - 1 - cells[i].position.y]++;
         }
         ClearDynamicWall();
-
+        Clear();
+        Draw();
     }
 
     public bool cleard = false;
@@ -73,10 +75,10 @@ internal class Map : IDraw
             if (record[i] == dWidth) {
                 for (int j = 0; j < dynamicWall.Count; j++) {
                     if (i == (height - dynamicWall[j].position.y - 1)) {
-                        removeCells.Add(dynamicWall[i]);
+                        removeCells.Add(dynamicWall[j]);
                     } else if ((height - dynamicWall[j].position.y - 1) > i) {
                         //bricks sink
-                        dynamicWall[i].position.y++;
+                        dynamicWall[j].position.y++;
                     }
                 }
                 // remove
