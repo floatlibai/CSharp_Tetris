@@ -40,12 +40,12 @@ internal class Cell : IDraw
             case E_CellType.TShape:
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 break;
-            case E_CellType.JShape: // fall-through
-            case E_CellType.LShape:
-                Console.ForegroundColor = ConsoleColor.DarkGray;
-                break;
             case E_CellType.SShape: // fall-through
             case E_CellType.ZShape:
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                break;
+            case E_CellType.JShape: // fall-through
+            case E_CellType.LShape:
                 Console.ForegroundColor = ConsoleColor.Gray;
                 break;
             default:
